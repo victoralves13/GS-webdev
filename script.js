@@ -40,58 +40,59 @@ function changeTheme(color) {
 }
 
 // --- QUIZ INTERATIVO ---
-const quiz = [
+const quizData = [
   {
-    pergunta: "Qual a capital do Brasil?",
-    opcoes: ["São Paulo", "Rio de Janeiro", "Brasília"],
-    correta: 2,
+    question: "Qual o principal objetivo do AquaShield Tech?",
+    options: ["A) Aumentar a produção agrícola", "B) Reduzir os custos com saneamento", "C) Monitorar e prevenir enchentes", "D) Melhorar o transporte público"],
+    answer: 2
   },
   {
-    pergunta: "Quantos estados tem o Brasil?",
-    opcoes: ["26", "27", "25"],
-    correta: 1,
+    question: "O que é utilizado para coleta de dados em tempo real no projeto?",
+    options: ["A) Drones", "B) Sensores IoT com Arduino", "C) Satélites", "D) Estações meteorológicas fixas"],
+    answer: 1
   },
   {
-    pergunta: "Qual é o maior planeta do sistema solar?",
-    opcoes: ["Terra", "Júpiter", "Saturno"],
-    correta: 1,
+    question: "O que significa a sigla IoT no contexto do projeto?",
+    options: ["A) Internet of Things", "B) Internal Operational Tracking", "C) Interface of Technology", "D) Information on Territory"],
+    answer: 0
   },
   {
-    pergunta: "Qual elemento químico representa o Ouro?",
-    opcoes: ["Au", "Ag", "Fe"],
-    correta: 0,
+    question: "Qual funcionalidade transforma a participação dos usuários em algo engajador?",
+    options: ["A) Sistema de doações", "B) Compartilhamento automático", "C) Gamificação", "D) Chat em tempo real"],
+    answer: 2
   },
   {
-    pergunta: "Quem escreveu 'Dom Casmurro'?",
-    opcoes: ["Machado de Assis", "Carlos Drummond", "Monteiro Lobato"],
-    correta: 0,
+    question: "Quem são os principais usuários da plataforma AquaShield Tech?",
+    options: ["A) Corretores de imóveis", "B) Moradores, voluntários e gestores", "C) Estudantes e professores", "D) Agricultores e caminhoneiros"],
+    answer: 1
   },
   {
-    pergunta: "Quanto é 8 x 7?",
-    opcoes: ["56", "64", "49"],
-    correta: 0,
+    question: "Como o projeto ajuda prefeituras e defesas civis?",
+    options: ["A) Fornecendo previsão climática mensal", "B) Emitindo boletos de pagamento", "C) Através de dashboards com dados em tempo real", "D) Criando abrigos automáticos"],
+    answer: 2
   },
   {
-    pergunta: "Qual oceano banha o Brasil?",
-    opcoes: ["Pacífico", "Atlântico", "Índico"],
-    correta: 1,
+    question: "Qual o papel da Inteligência Artificial no AquaShield Tech?",
+    options: ["A) Controlar os drones de resgate", "B) Prever enchentes com base em dados históricos", "C) Calcular rotas para navios", "D) Gerenciar campanhas de marketing"],
+    answer: 1
   },
   {
-    pergunta: "Quem pintou a Monalisa?",
-    opcoes: ["Van Gogh", "Michelangelo", "Leonardo da Vinci"],
-    correta: 2,
+    question: "O que acontece quando um usuário reporta uma enchente?",
+    options: ["A) Nada, é apenas simbólico", "B) Ele é redirecionado a outra página", "C) Ganha pontos e ajuda no alerta da comunidade", "D) Recebe um prêmio físico"],
+    answer: 2
   },
   {
-    pergunta: "Qual o idioma mais falado no mundo?",
-    opcoes: ["Inglês", "Mandarim", "Espanhol"],
-    correta: 1,
+    question: "O AquaShield Tech pode ser adaptado para outras cidades?",
+    options: ["A) Não, é exclusivo para São Paulo", "B) Sim, é escalável", "C) Apenas com aprovação federal", "D) Somente se for em zona rural"],
+    answer: 1
   },
   {
-    pergunta: "Qual país tem a maior população?",
-    opcoes: ["Índia", "Estados Unidos", "China"],
-    correta: 2,
-  },
+    question: "Qual é o diferencial visual da marca AquaShield Tech?",
+    options: ["A) Escudo com gotas de água", "B) Triângulo amarelo com raio", "C) Folha verde com código binário", "D) Ônibus flutuando"],
+    answer: 0
+  }
 ];
+
 
 let index = 0;
 let acertos = 0;
