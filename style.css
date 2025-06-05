@@ -1,0 +1,142 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #222;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.navbar .hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#themes button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Slideshow */
+.slideshow-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.slideshow-container img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+/* Formulário */
+form {
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+form button {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Mensagem do formulário */
+#form-msg {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Quiz */
+#quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#quiz-container h2 {
+  margin-bottom: 15px;
+}
+
+#answers label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+#next-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .navbar .hamburger {
+    display: block;
+  }
+}
