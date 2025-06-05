@@ -103,6 +103,8 @@ const quizOptions = document.getElementById("quiz-options");
 const nextBtn = document.getElementById("next-btn");
 const quizResult = document.getElementById("quiz-result");
 
+// Função para validar o formulário de contato
+
 function loadQuestion() {
   const questionData = quizData[currentQuestion];
   quizQuestion.textContent = questionData.question;
