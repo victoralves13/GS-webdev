@@ -39,7 +39,9 @@ function changeTheme(color) {
   document.body.style.backgroundColor = color;
 }
 
-// --- QUIZ INTERATIVO ---
+// =======================
+// QUIZ - AQUASHIELD TECH
+// =======================
 const quizData = [
   {
     question: "Qual o principal objetivo do AquaShield Tech?",
@@ -93,51 +95,62 @@ const quizData = [
   }
 ];
 
+let currentQuestion = 0;
+let score = 0;
 
-let index = 0;
-let acertos = 0;
+const quizQuestion = document.getElementById("quiz-question");
+const quizOptions = document.getElementById("quiz-options");
+const nextBtn = document.getElementById("next-btn");
+const quizResult = document.getElementById("quiz-result");
 
-function renderQuiz() {
-  const q = quiz[index];
-  document.getElementById("question").textContent = q.pergunta;
-  const answersDiv = document.getElementById("answers");
-  answersDiv.innerHTML = "";
-  document.getElementById("quiz-result").textContent = "";
+function loadQuestion() {
+  const questionData = quizData[currentQuestion];
+  quizQuestion.textContent = questionData.question;
+  quizOptions.innerHTML = "";
 
-  q.opcoes.forEach((op, i) => {
-    const label = document.createElement("label");
-    label.innerHTML = `<input type='radio' name='quiz-option' value='${i}'> ${op}`;
-    answersDiv.appendChild(label);
-    answersDiv.appendChild(document.createElement("br"));
+  questionData.options.forEach((option, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = option;
+    btn.className = "quiz-option";
+    btn.onclick = () => selectOption(index);
+    quizOptions.appendChild(btn);
   });
 
-  document.getElementById("next-btn").style.display = "inline";
+  nextBtn.style.display = "none";
 }
 
-function nextQuestion() {
-  const selecionado = document.querySelector("input[name='quiz-option']:checked");
+function selectOption(selected) {
+  const correct = quizData[currentQuestion].answer;
+  const buttons = document.querySelectorAll(".quiz-option");
 
-  if (!selecionado) {
-    alert("Por favor, selecione uma opção.");
-    return;
-  }
+  buttons.forEach((btn, idx) => {
+    btn.disabled = true;
+    if (idx === correct) {
+      btn.style.backgroundColor = "green";
+    } else if (idx === selected) {
+      btn.style.backgroundColor = "red";
+    }
+  });
 
-  const resposta = parseInt(selecionado.value);
-  if (resposta === quiz[index].correta) acertos++;
+  if (selected === correct) score++;
+  nextBtn.style.display = "inline-block";
+}
 
-  index++;
-  if (index < quiz.length) {
-    renderQuiz();
+nextBtn.onclick = () => {
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    loadQuestion();
   } else {
-    mostrarResultado();
+    showResult();
   }
+};
+
+function showResult() {
+  quizQuestion.textContent = "";
+  quizOptions.innerHTML = "";
+  nextBtn.style.display = "none";
+  quizResult.innerHTML = `<h3>Você acertou ${score} de ${quizData.length} perguntas.</h3>`;
 }
 
-function mostrarResultado() {
-  document.getElementById("question").textContent = "Fim do Quiz!";
-  document.getElementById("answers").innerHTML = "";
-  document.getElementById("quiz-result").textContent = `Você acertou ${acertos} de ${quiz.length} perguntas.`;
-  document.getElementById("next-btn").style.display = "none";
-}
-
-renderQuiz();
+// Inicializar
+loadQuestion();
